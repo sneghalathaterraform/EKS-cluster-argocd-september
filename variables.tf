@@ -1,13 +1,13 @@
 variable "aws_region" {
   description = "AWS region to deploy all resources"
   type        = string
-  default     = "ap-south-1"
+  default     = "us-east-1"
 }
 
 variable "project_name" {
   description = "Project name used as a prefix for all resources"
   type        = string
-  default     = "raham"
+  default     = "Snegha"
 }
 
 # ───────────────────────────────
@@ -16,13 +16,13 @@ variable "project_name" {
 variable "bastion_ami_id" {
   description = "Ubuntu 22.04 LTS AMI ID for the bastion/admin host (region-specific, update if changing region)"
   type        = string
-  default     = "ami-0e35ddab05955cf57" # Ubuntu 22.04 LTS - ap-south-1 (Mumbai)
+  default     = "ami-0e35ddab05955cf57" # Ubuntu 22.04 LTS - us-east-1 (N. Virginia)
 }
 
 variable "bastion_instance_type" {
   description = "EC2 instance type for the bastion host"
   type        = string
-  default     = "m7i-flex.large"
+  default     = "c7i-flex.large"
 }
 
 variable "bastion_root_volume_size" {
@@ -34,7 +34,7 @@ variable "bastion_root_volume_size" {
 variable "key_pair_name" {
   description = "Existing EC2 key pair name for SSH access to the bastion host"
   type        = string
-  default     = "abcd"
+  default     = "eks-practice-key"
 }
 
 variable "ssh_allowed_cidr" {
@@ -55,7 +55,7 @@ variable "vpc_cidr" {
 variable "azs" {
   description = "Availability zones to spread the EKS cluster and subnets across"
   type        = list(string)
-  default     = ["ap-south-1a", "ap-south-1b", "ap-south-1c"]
+  default     = ["us-east-1a", "us-east-1b", "us-east-1c"]
 }
 
 variable "public_subnet_cidrs" {
@@ -76,7 +76,7 @@ variable "private_subnet_cidrs" {
 variable "cluster_name" {
   description = "Name of the EKS cluster"
   type        = string
-  default     = "raham-cluster"
+  default     = "Snegha-cluster"
 }
 
 variable "cluster_version" {
@@ -91,7 +91,7 @@ variable "cluster_version" {
 variable "nodegroup_name" {
   description = "Name of the EKS managed nodegroup"
   type        = string
-  default     = "raham-cluster-ng-1"
+  default     = "Snegha-cluster-ng-1"
 }
 
 variable "node_instance_types" {
